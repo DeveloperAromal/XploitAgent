@@ -1,0 +1,28 @@
+langchain
+ollama
+openai  
+python-dotenv
+
+requests
+beautifulsoup4
+lxml
+flask
+
+subprocess32 ; python_version < '3.5'
+# psutil
+
+# html5lib
+
+# PyYAML
+
+# smtplib
+# email-validator
+
+# markdown
+# pdfkit
+# jinja2
+
+# loguru
+# rich
+# playwright
+
