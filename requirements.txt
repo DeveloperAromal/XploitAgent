@@ -9,6 +9,8 @@ lxml
 flask
 
 subprocess32 ; python_version < '3.5'
+playwright
+
 # psutil
 
 # html5lib
