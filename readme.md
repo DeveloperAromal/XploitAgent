@@ -1,7 +1,5 @@
 # Hey this is the official doc of XploitAgent
 
-## To Work on this project
-
 ## Step (1) - Clone this project
 
 ```
