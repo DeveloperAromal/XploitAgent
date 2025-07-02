@@ -1,0 +1,3 @@
+[+] Possible Endpoints 
+http://lfemhss.127.0.0.1.nip.io:3000/s/lfemhss/auth/teachersignup
+http://lfemhss.127.0.0.1.nip.io:3000/_next/static/chunks/app/s/%5Bsubdomain%5D/auth/teachersignup/page.js
