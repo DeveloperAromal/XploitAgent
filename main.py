@@ -1,7 +1,8 @@
 from tools.base.scraper import WebScraper
 from tools.base.stack_finder import StackFinder
 from tools.leaky_header_finder import monitor_network 
-from tools.base.subdomain import subdomainFinder
+from tools.base.subdomain import SubFinder
+from tools.nmap import run_basic_port_scan
 
 
 import time
@@ -26,9 +27,20 @@ ascii_art = r"""
 |__/  |__/| $$____/ |__/ \______/ |__/   \___/  |__/  |__/ \____  $$ \_______/|__/  |__/   \___/        
           | $$                                             /$$  \ $$                                    
           | $$                                            |  $$$$$$/                                    
-          |__/                                             \______/                                    
-
+          |__/                                             \______/          
+                                            Happy hacking                          
 """ 
 typewriter(Fore.CYAN + ascii_art + Style.RESET_ALL, delay=0.0005)
 
-subdomainFinder("https://futuretechies.vercel.app", "api")
+# SubFinder("https://www.ontraq.in/")
+
+target = input("Enter the target website or IP (e.g., example.com): ")
+result = run_basic_port_scan(target)
+
+print("Scan Result:\n")
+print(result)
+
+
+
+
+# https://ontraq.in/dashboard
