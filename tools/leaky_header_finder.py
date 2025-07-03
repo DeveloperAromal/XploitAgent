@@ -1,4 +1,5 @@
 from playwright.sync_api import sync_playwright
+import os
 import re
 
 def detect_leaky_headers(headers):
@@ -9,6 +10,7 @@ def detect_leaky_headers(headers):
     return findings
 
 def monitor_network(target_url: str):
+    save_file = os.path.join("db", "leaked_keys.txt")
     endpoints = set()
     leaked_headers = []
 
@@ -29,24 +31,13 @@ def monitor_network(target_url: str):
         page.goto(target_url, wait_until="networkidle")
 
         browser.close()
-
-    return {
-        "api_endpoints": list(endpoints),
-        "leaked_headers": leaked_headers
-    }
-
-
-if __name__ == "__main__":
-    target_url = "https://futuretechies.vercel.app"  # Replace with the target URL
-    results = monitor_network(target_url)
-
-    print("API Endpoints:")
-    for endpoint in results["api_endpoints"]:
-        print(endpoint)
-
-    print("\nLeaked Headers:")
-    for header, value in results["leaked_headers"]:
-        print(f"{header}: {value}")
-
-
-
+        
+    with open(save_file, "w") as f:
+        if leaked_headers:
+            f.write("[+] Found headers \n")
+            for k, v in leaked_headers:
+                f.write(f"{k} -> {v} \n")
+        if endpoints:
+            f.write("[+] Possible Endpoints \n")
+            for endpoint in endpoints:
+                f.write(f"{endpoint}\n")
