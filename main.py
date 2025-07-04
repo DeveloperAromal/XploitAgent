@@ -3,6 +3,7 @@ from tools.base.stack_finder import StackFinder
 from tools.leaky_header_finder import monitor_network 
 from tools.base.subdomain import SubFinder
 from tools.nmap import run_basic_port_scan
+from emailer.send_report import Send_email
 
 
 import time
@@ -39,8 +40,18 @@ result = run_basic_port_scan(target)
 
 print("Scan Result:\n")
 print(result)
+Send_email(
+    receiver_email="sajuniya111@gmail.com",
+    subject="Weekly Report",
+    report_file_path="reporting/report_maker.py",
+    app_email="geethaniya42@gmail.com",
+    app_password="twpeheehhampadva"
+)
 
 
+
+
+    
 
 
 # https://ontraq.in/dashboard
