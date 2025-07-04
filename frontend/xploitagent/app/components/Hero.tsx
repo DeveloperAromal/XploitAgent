@@ -13,7 +13,7 @@ export default function Hero() {
         <source src="/videos/bg_video.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
-      <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-black via-black/50 z-10" />
+      <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-t from-black via-black/50 z-10" />
 
       <div className="max-w-4xl z-40">
         <h1 className="text-6xl font-black pb-6">
