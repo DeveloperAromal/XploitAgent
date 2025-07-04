@@ -25,12 +25,12 @@ def Send_email(receiver_email, subject, report_file_path, app_email, app_passwor
 
 
 
-receiver_email = "sajuniya111@gmail.com"
+receiver_email = "example@gmail.com"
 subject = "Weekly Project Report"
 report_file_path = "reporting/report_maker.py" 
 
 app_email = "geethaniya42@gmail.com"
-app_password = "twpe heeh hamp adva" 
+app_password = "twpeheehhampadva" 
 
 Send_email(receiver_email, subject, report_file_path, app_email, app_password)
 
