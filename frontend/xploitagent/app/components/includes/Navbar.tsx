@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function Navbar() {
   return (
-    <header className="fixed w-full py-8 bg-black ">
+    <header className="fixed w-full py-8 bg-black z-1000">
       <div>
         <nav className="flex justify-between items-center px-10">
           <div className="flex items-center justify-center gap-[3rem]">
@@ -20,6 +20,8 @@ export default function Navbar() {
                 />
               </h1>
             </Link>
+          </div>
+          <div>
             <ul className="flex gap-[3rem] h-auto justify-center">
               <Link href="#" className="hover:text-cyan-400">
                 <li>Features</li>
