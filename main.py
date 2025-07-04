@@ -41,7 +41,7 @@ result = run_basic_port_scan(target)
 print("Scan Result:\n")
 print(result)
 Send_email(
-    receiver_email="sajuniya111@gmail.com",
+    receiver_email="example@gmail.com",
     subject="Weekly Report",
     report_file_path="reporting/report_maker.py",
     app_email="geethaniya42@gmail.com",
