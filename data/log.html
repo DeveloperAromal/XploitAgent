@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Live Logs</title>
+    <style>
+      body {
+        background: #111;
+        color: #30e70b;
+        font-family: monospace;
+        padding: 1rem;
+      }
+      pre {
+        white-space: pre-wrap;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Live Logs</h1>
+    <pre id="log"></pre>
+
+    <script>
+      async function fetchLogs() {
+        try {
+          const res = await fetch("http://127.0.0.1:5000/api/logs");
+          const text = await res.text();
+          console.log("Fetched logs:", text);
+          document.getElementById("log").textContent = text;
+        } catch (e) {
+          console.error("Fetch error:", e); 
+          document.getElementById("log").textContent = "Waiting for logs.";
+        }
+      }
+
+      fetchLogs(); 
+      setInterval(fetchLogs, 1000); 
+    </script>
+  </body>
+</html>

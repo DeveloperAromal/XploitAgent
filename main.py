@@ -1,12 +1,9 @@
-from tools.base.scraper import WebScraper
-from tools.base.stack_finder import StackFinder
-from tools.leaky_header_finder import monitor_network 
-from tools.base.subdomain import SubFinder
-from tools.nmap import run_basic_port_scan
-
-
 import time
 from colorama import Fore, Style
+import sys
+import io
+
+from server.app import app
 
 
 def typewriter(text, delay=0.0005):
@@ -28,19 +25,47 @@ ascii_art = r"""
           | $$                                             /$$  \ $$                                    
           | $$                                            |  $$$$$$/                                    
           |__/                                             \______/          
-                                            Happy hacking                          
+-----------------------------------------Happy hacking-------------------------------------------                          
 """ 
+# https://ontraq.in/dashboard <=== This is the test website
+
 typewriter(Fore.CYAN + ascii_art + Style.RESET_ALL, delay=0.0005)
 
-# SubFinder("https://www.ontraq.in/")
 
-target = input("Enter the target website or IP (e.g., example.com): ")
-result = run_basic_port_scan(target)
 
-print("Scan Result:\n")
-print(result)
+
+def main():
+    app.run(debug=False)
 
 
 
 
-# https://ontraq.in/dashboard
+
+main()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

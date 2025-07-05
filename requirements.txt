@@ -1,4 +1,5 @@
 langchain
+langchain-community
 ollama
 openai  
 python-dotenv

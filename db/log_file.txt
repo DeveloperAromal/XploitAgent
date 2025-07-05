@@ -1,0 +1,12 @@
+05/07/25 - 21:13:37    [✓] Target received: https://ontraq.in/dashboard
+05/07/25 - 21:13:37    [*] Scraping the web
+05/07/25 - 21:13:38    [*] Process finished
+05/07/25 - 21:13:38    [*] Saving the file
+05/07/25 - 21:13:38    [*] Looking for the stack details
+05/07/25 - 21:13:38    [*] Process finished
+05/07/25 - 21:13:38    [*] Saving the file
+05/07/25 - 21:13:38    [+] Scaning 50 subdomains in https://ontraq.in/dashboard....
+05/07/25 - 21:13:38    [*] Found https://www.ontraq.in/dashboard
+05/07/25 - 21:13:38    [*] 3 valid urls found...
+05/07/25 - 21:13:38    [*] Found https://api.ontraq.in/dashboard
+05/07/25 - 21:13:38    [*] 4 valid urls found...

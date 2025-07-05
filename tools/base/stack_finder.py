@@ -1,8 +1,11 @@
 import os 
 from bs4 import BeautifulSoup
-
+from colorama import Fore, Style
+from utils.log import logReport
 
 def StackFinder():
+    logReport("[*] Looking for the stack details")    
+    print(f"{Fore.GREEN}[*] Looking for the stack details\n{Style.RESET_ALL}")
     load_data = os.path.join("db", "target_html.txt")
     save_path = os.path.join("db", "target_stack_data.txt")
     
@@ -27,5 +30,9 @@ def StackFinder():
                     presence = "Presence of Next js found on target"
                 
         with open(save_path, "w") as f:
-                f.write(presence)
+            logReport("[*] Process finished")  
+            logReport("[*] Saving the file")      
+            print(f"{Fore.GREEN}[*] Process finished{Style.RESET_ALL}")
+            print(f"{Fore.YELLOW}[*] Saving the file\n\n{Style.RESET_ALL}")
+            f.write(presence)
         
