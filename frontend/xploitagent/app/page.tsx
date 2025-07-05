@@ -7,6 +7,7 @@ import PainPoint from "./components/PainPoint";
 import Solution from "./components/Solution";
 import Threat from "./components/Threat";
 import WhoThisIsFor from "./components/WhoThisIsFor";
+import WhyChooseEyeShield from "./components/WhyChooseEyeShield";
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
       <LatestNews />
       <Threat />
       <WhoThisIsFor />
+      <WhyChooseEyeShield/>
       {/* <PainPoint /> */}
       {/* <Solution /> */}
       {/* <Features /> */}
