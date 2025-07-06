@@ -19,10 +19,10 @@ export default function Home() {
       <Hero />
       <Supporters />
       {/* <LatestNews /> */}
-      {/* {/* <Threat /> */}
-      <VidSec />
+      <Threat />
+      {/* <VidSec />
       <VideoSection />
-      <WhoThisIsFor />
+      <WhoThisIsFor /> */}
       {/* <WhyChooseEyeShield /> */}
       {/* <PainPoint /> */}
       {/* <Solution /> */}
