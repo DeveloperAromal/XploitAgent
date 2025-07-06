@@ -24,18 +24,18 @@ export default function Hero() {
           testing—from initial reconnaissance to exploit delivery. The ultimate
           AI-powered offensive security partner.
         </p>
-        <div className="action_buttons">
+        <div className="action_buttons flex gap-6">
           <Link
             href={"#"}
-            className="px-16 py-4 mr-3 rounded-lg font-bold border-2 bg-white  text-neutral-900"
+            className="px-16 py-4  rounded-lg font-bold border-2 bg-white  text-neutral-900"
           >
-            Try Now
+            <code>Try Now</code>
           </Link>
           <Link
             href={"#"}
-            className="px-10 py-4 rounded-md font-bold border-2 border-white hover:bg-[var(--primary)] transition-all duration-300"
+            className="px-10 py-4 rounded-lg font-bold border-2 border-white hover:bg-white hover:text-neutral-900 transition-all duration-300"
           >
-            Contact Us
+            <code> Contact Us</code>
           </Link>
         </div>
       </div>

@@ -23,7 +23,7 @@ export default function Navbar() {
             </Link>
           </div>
           <div>
-            <ul className="flex gap-[3rem] h-auto justify-center">
+            <ul className="flex gap-[3rem] h-auto justify-">
               <Link href="#" className="hover:text-cyan-400">
                 <li>Features</li>
               </Link>
