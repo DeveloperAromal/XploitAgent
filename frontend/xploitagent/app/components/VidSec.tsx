@@ -10,17 +10,14 @@ export default function VidSec() {
         playsInline
         className="absolute z-10 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-250 h-auto"
       >
-        <source src="/assets/phone.mp4" type="video/mp4" />
-        Your browser does not support the video tag.
+        <source src="/assets/phone-active.mp4" type="video/mp4" />
+        <source src="/assets/phone-active.webm" type="video/webm" />
       </video>
-      <div className="top z-50">
-        <h2 className="text-[5rem] font-extrabold mb-40">
-          Lightning fast. <br /> Edge ready
-        </h2>
 
-        {/* <Link href={"#"} className="text-gray-500 hover:text-blue-600">
-          Test Your Website Now
-        </Link> */}
+      <div className="relative -top-40 z-50">
+        <h2 className="text-[6rem] max-w-3xl font-semibold text-transparent bg-clip-text bg-gradient-to-tr from-white via-zinc-600 to-neutral-800">
+          Lightning fast. Edge ready
+        </h2>
       </div>
     </section>
   );
