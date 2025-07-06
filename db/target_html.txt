@@ -13,6 +13,10 @@
   </script>
   <script async="" src="/_next/static/chunks/main-app-d9794b1200c643e4.js">
   </script>
+  <script async="" src="/_next/static/chunks/647-1d6cfabd9700c4f5.js">
+  </script>
+  <script async="" src="/_next/static/chunks/app/dashboard/page-33dfc4a37db392dd.js">
+  </script>
   <meta content="" name="next-size-adjust"/>
   <title>
    Create Next App
@@ -30,15 +34,61 @@
    <!--$-->
    <!--/$-->
   </div>
-  <main class="flex items-center justify-center h-screen">
-   <div>
-    <h1 class="text-center text-[3rem] md:text-[5rem] lg:text-[5rem] antialiased leading-tight text-transparent bg-gradient-to-tl from-zinc-200 via-zinc-400 to-zinc-600 bg-clip-text">
-     XploitAgent.
-    </h1>
-    <p class="text-center text-xs lg:text-base md:text-base mt-2">
-     This is a Vulnerability test site for XploitAgent
+  <main class="min-h-screen bg-black text-white p-10 space-y-10">
+   <h1 class="text-5xl font-bold text-transparent bg-gradient-to-tl from-zinc-200 via-zinc-400 to-zinc-600 bg-clip-text">
+    XploitAgent Dashboard
+   </h1>
+   <p class="text-zinc-400">
+    Welcome,
+    <!-- -->
+    <span class="font-mono">
+     Anonymous (no check)
+    </span>
+   </p>
+   <section>
+    <h2 class="text-2xl font-semibold mb-2">
+     Comment Wall
+    </h2>
+    <div class="flex gap-2 mb-4">
+     <input class="w-full px-4 py-2 bg-zinc-800 border border-zinc-600 rounded placeholder:text-zinc-500" placeholder="Drop a comment..." value=""/>
+     <button class="bg-green-600 px-4 py-2 rounded">
+      Post
+     </button>
+    </div>
+    <div class="space-y-2">
+    </div>
+   </section>
+   <section>
+    <h2 class="text-2xl font-semibold mb-2">
+     File Upload
+    </h2>
+    <div class="flex gap-2">
+     <input class="text-sm" type="file"/>
+     <button class="bg-purple-600 px-4 py-2 rounded">
+      Upload
+     </button>
+    </div>
+   </section>
+   <section>
+    <h2 class="text-2xl font-semibold mb-2">
+     Profile (IDOR)
+    </h2>
+    <p class="text-sm text-zinc-400">
+     View user profiles using unprotected URLs:
     </p>
-   </div>
+    <ul class="mt-2 list-disc list-inside">
+     <li>
+      <a class="text-blue-500" href="/dashboard/profile/p/1">
+       View Profile ID 1
+      </a>
+     </li>
+     <li>
+      <a class="text-blue-500" href="/dashboard/profile/p/2">
+       View Profile ID 2
+      </a>
+     </li>
+    </ul>
+   </section>
   </main>
   <!--$-->
   <!--/$-->
@@ -48,23 +98,22 @@
    (self.__next_f=self.__next_f||[]).push([0])
   </script>
   <script>
-   self.__next_f.push([1,"1:\"$Sreact.fragment\"\n2:I[7555,[],\"\"]\n3:I[1295,[],\"\"]\n4:I[9665,[],\"OutletBoundary\"]\n7:I[4911,[],\"AsyncMetadataOutlet\"]\n9:I[9665,[],\"ViewportBoundary\"]\nb:I[9665,[],\"MetadataBoundary\"]\nd:I[6614,[],\"\"]\n:HL[\"/_next/static/media/569ce4b8f30dc480-s.p.woff2\",\"font\",{\"crossOrigin\":\"\",\"type\":\"font/woff2\"}]\n:HL[\"/_next/static/media/93f479601ee12b01-s.p.woff2\",\"font\",{\"crossOrigin\":\"\",\"type\":\"font/woff2\"}]\n:HL[\"/_next/static/css/c18f3aee7d544034.css\",\"style\"]\n"])
+   self.__next_f.push([1,"1:\"$Sreact.fragment\"\n2:I[7555,[],\"\"]\n3:I[1295,[],\"\"]\n4:I[894,[],\"ClientPageRoot\"]\n5:I[966,[\"647\",\"static/chunks/647-1d6cfabd9700c4f5.js\",\"105\",\"static/chunks/app/dashboard/page-33dfc4a37db392dd.js\"],\"default\"]\n8:I[9665,[],\"OutletBoundary\"]\nb:I[4911,[],\"AsyncMetadataOutlet\"]\nd:I[9665,[],\"ViewportBoundary\"]\nf:I[9665,[],\"MetadataBoundary\"]\n11:I[6614,[],\"\"]\n:HL[\"/_next/static/media/569ce4b8f30dc480-s.p.woff2\",\"font\",{\"crossOrigin\":\"\",\"type\":\"font/woff2\"}]\n:HL[\"/_next/static/media/93f479601ee12b01-s.p.woff2\",\"font\",{\"crossOrigin\":\"\",\"type\":\"font/woff2\"}]\n:HL[\"/_next/static/css/c18f3aee7d544034.css\",\"style\"]\n"])
   </script>
   <script>
-<<<<<<< HEAD
-   self.__next_f.push([1,"0:{\"P\":null,\"b\":\"BilPs7MHoMuRYox593uPG\",\"p\":\"\",\"c\":[\"\",\"\"],\"i\":false,\"f\":[[[\"\",{\"children\":[\"__PAGE__\",{}]},\"$undefined\",\"$undefined\",true],[\"\",[\"$\",\"$1\",\"c\",{\"children\":[[[\"$\",\"link\",\"0\",{\"rel\":\"stylesheet\",\"href\":\"/_next/static/css/c18f3aee7d544034.css\",\"precedence\":\"next\",\"crossOrigin\":\"$undefined\",\"nonce\":\"$undefined\"}]],[\"$\",\"html\",null,{\"lang\":\"en\",\"children\":[\"$\",\"body\",null,{\"className\":\"__variable_5cfdac __variable_9a8899 antialiased\",\"children\":[\"$\",\"$L2\",null,{\"parallelRouterKey\":\"children\",\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L3\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":[[[\"$\",\"title\",null,{\"children\":\"404: This page could not be found.\"}],[\"$\",\"div\",null,{\"style\":{\"fontFamily\":\"system-ui,\\\"Segoe UI\\\",Roboto,Helvetica,Arial,sans-serif,\\\"Apple Color Emoji\\\",\\\"Segoe UI Emoji\\\"\",\"height\":\"100vh\",\"textAlign\":\"center\",\"display\":\"flex\",\"flexDirection\":\"column\",\"alignItems\":\"center\",\"justifyContent\":\"center\"},\"children\":[\"$\",\"div\",null,{\"children\":[[\"$\",\"style\",null,{\"dangerouslySetInnerHTML\":{\"__html\":\"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}\"}}],[\"$\",\"h1\",null,{\"className\":\"next-error-h1\",\"style\":{\"display\":\"inline-block\",\"margin\":\"0 20px 0 0\",\"padding\":\"0 23px 0 0\",\"fontSize\":24,\"fontWeight\":500,\"verticalAlign\":\"top\",\"lineHeight\":\"49px\"},\"children\":404}],[\"$\",\"div\",null,{\"style\":{\"display\":\"inline-block\"},\"children\":[\"$\",\"h2\",null,{\"style\":{\"fontSize\":14,\"fontWeight\":400,\"lineHeight\":\"49px\",\"margin\":0},\"children\":\"This page could not be found.\"}]}]]}]}]],[]],\"forbidden\":\"$undefined\",\"unauthorized\":\"$undefined\"}]}]}]]}],{\"children\":[\"__PAGE__\",[\"$\",\"$1\",\"c\",{\"children\":[[\"$\",\"main\",null,{\"className\":\"flex items-center justify-center h-screen\",\"children\":[\"$\",\"div\",null,{\"children\":[[\"$\",\"h1\",null,{\"className\":\"text-center text-[3rem] md:text-[5rem] lg:text-[5rem] antialiased leading-tight text-transparent bg-gradient-to-tl from-zinc-200 via-zinc-400 to-zinc-600 bg-clip-text\",\"children\":\"XploitAgent.\"}],[\"$\",\"p\",null,{\"className\":\"text-center text-xs lg:text-base md:text-base mt-2\",\"children\":\"This is a Vulnerability test site for XploitAgent\"}]]}]}],null,[\"$\",\"$L4\",null,{\"children\":[\"$L5\",\"$L6\",[\"$\",\"$L7\",null,{\"promise\":\"$@8\"}]]}]]}],{},null,false]},null,false],[\"$\",\"$1\",\"h\",{\"children\":[null,[\"$\",\"$1\",\"vge00SNQ7lubG5iZ4bSWuv\",{\"children\":[[\"$\",\"$L9\",null,{\"children\":\"$La\"}],[\"$\",\"meta\",null,{\"name\":\"next-size-adjust\",\"content\":\"\"}]]}],[\"$\",\"$Lb\",null,{\"children\":\"$Lc\"}]]}],false]],\"m\":\"$undefined\",\"G\":[\"$d\",\"$undefined\"],\"s\":false,\"S\":true}\n"])
-=======
-   self.__next_f.push([1,"0:{\"P\":null,\"b\":\"oaGkt0VLhLaqsXtnyG4Fj\",\"p\":\"\",\"c\":[\"\",\"\"],\"i\":false,\"f\":[[[\"\",{\"children\":[\"__PAGE__\",{}]},\"$undefined\",\"$undefined\",true],[\"\",[\"$\",\"$1\",\"c\",{\"children\":[[[\"$\",\"link\",\"0\",{\"rel\":\"stylesheet\",\"href\":\"/_next/static/css/c18f3aee7d544034.css\",\"precedence\":\"next\",\"crossOrigin\":\"$undefined\",\"nonce\":\"$undefined\"}]],[\"$\",\"html\",null,{\"lang\":\"en\",\"children\":[\"$\",\"body\",null,{\"className\":\"__variable_5cfdac __variable_9a8899 antialiased\",\"children\":[\"$\",\"$L2\",null,{\"parallelRouterKey\":\"children\",\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L3\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":[[[\"$\",\"title\",null,{\"children\":\"404: This page could not be found.\"}],[\"$\",\"div\",null,{\"style\":{\"fontFamily\":\"system-ui,\\\"Segoe UI\\\",Roboto,Helvetica,Arial,sans-serif,\\\"Apple Color Emoji\\\",\\\"Segoe UI Emoji\\\"\",\"height\":\"100vh\",\"textAlign\":\"center\",\"display\":\"flex\",\"flexDirection\":\"column\",\"alignItems\":\"center\",\"justifyContent\":\"center\"},\"children\":[\"$\",\"div\",null,{\"children\":[[\"$\",\"style\",null,{\"dangerouslySetInnerHTML\":{\"__html\":\"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}\"}}],[\"$\",\"h1\",null,{\"className\":\"next-error-h1\",\"style\":{\"display\":\"inline-block\",\"margin\":\"0 20px 0 0\",\"padding\":\"0 23px 0 0\",\"fontSize\":24,\"fontWeight\":500,\"verticalAlign\":\"top\",\"lineHeight\":\"49px\"},\"children\":404}],[\"$\",\"div\",null,{\"style\":{\"display\":\"inline-block\"},\"children\":[\"$\",\"h2\",null,{\"style\":{\"fontSize\":14,\"fontWeight\":400,\"lineHeight\":\"49px\",\"margin\":0},\"children\":\"This page could not be found.\"}]}]]}]}]],[]],\"forbidden\":\"$undefined\",\"unauthorized\":\"$undefined\"}]}]}]]}],{\"children\":[\"__PAGE__\",[\"$\",\"$1\",\"c\",{\"children\":[[\"$\",\"main\",null,{\"className\":\"flex items-center justify-center h-screen\",\"children\":[\"$\",\"div\",null,{\"children\":[[\"$\",\"h1\",null,{\"className\":\"text-center text-[3rem] md:text-[5rem] lg:text-[5rem] antialiased leading-tight text-transparent bg-gradient-to-tl from-zinc-200 via-zinc-400 to-zinc-600 bg-clip-text\",\"children\":\"XploitAgent.\"}],[\"$\",\"p\",null,{\"className\":\"text-center text-xs lg:text-base md:text-base mt-2\",\"children\":\"This is a Vulnerability test site for XploitAgent\"}]]}]}],null,[\"$\",\"$L4\",null,{\"children\":[\"$L5\",\"$L6\",[\"$\",\"$L7\",null,{\"promise\":\"$@8\"}]]}]]}],{},null,false]},null,false],[\"$\",\"$1\",\"h\",{\"children\":[null,[\"$\",\"$1\",\"SV0NoorXGdG7YylUw5hXJv\",{\"children\":[[\"$\",\"$L9\",null,{\"children\":\"$La\"}],[\"$\",\"meta\",null,{\"name\":\"next-size-adjust\",\"content\":\"\"}]]}],[\"$\",\"$Lb\",null,{\"children\":\"$Lc\"}]]}],false]],\"m\":\"$undefined\",\"G\":[\"$d\",\"$undefined\"],\"s\":false,\"S\":true}\n"])
->>>>>>> 0efb5c0afbfc2e305a6b251313b146f1db127222
+   self.__next_f.push([1,"0:{\"P\":null,\"b\":\"Ld-vFaEmkJHsmGGbo7Nuu\",\"p\":\"\",\"c\":[\"\",\"dashboard\"],\"i\":false,\"f\":[[[\"\",{\"children\":[\"dashboard\",{\"children\":[\"__PAGE__\",{}]}]},\"$undefined\",\"$undefined\",true],[\"\",[\"$\",\"$1\",\"c\",{\"children\":[[[\"$\",\"link\",\"0\",{\"rel\":\"stylesheet\",\"href\":\"/_next/static/css/c18f3aee7d544034.css\",\"precedence\":\"next\",\"crossOrigin\":\"$undefined\",\"nonce\":\"$undefined\"}]],[\"$\",\"html\",null,{\"lang\":\"en\",\"children\":[\"$\",\"body\",null,{\"className\":\"__variable_5cfdac __variable_9a8899 antialiased\",\"children\":[\"$\",\"$L2\",null,{\"parallelRouterKey\":\"children\",\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L3\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":[[[\"$\",\"title\",null,{\"children\":\"404: This page could not be found.\"}],[\"$\",\"div\",null,{\"style\":{\"fontFamily\":\"system-ui,\\\"Segoe UI\\\",Roboto,Helvetica,Arial,sans-serif,\\\"Apple Color Emoji\\\",\\\"Segoe UI Emoji\\\"\",\"height\":\"100vh\",\"textAlign\":\"center\",\"display\":\"flex\",\"flexDirection\":\"column\",\"alignItems\":\"center\",\"justifyContent\":\"center\"},\"children\":[\"$\",\"div\",null,{\"children\":[[\"$\",\"style\",null,{\"dangerouslySetInnerHTML\":{\"__html\":\"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}\"}}],[\"$\",\"h1\",null,{\"className\":\"next-error-h1\",\"style\":{\"display\":\"inline-block\",\"margin\":\"0 20px 0 0\",\"padding\":\"0 23px 0 0\",\"fontSize\":24,\"fontWeight\":500,\"verticalAlign\":\"top\",\"lineHeight\":\"49px\"},\"children\":404}],[\"$\",\"div\",null,{\"style\":{\"display\":\"inline-block\"},\"children\":[\"$\",\"h2\",null,{\"style\":{\"fontSize\":14,\"fontWeight\":400,\"lineHeight\":\"49px\",\"margin\":0},\"children\":\"This page could not be found.\"}]}]]}]}]],[]],\"forbidden\":\"$undefined\",\"unauthorized\":\"$undefined\"}]}]}]]}],{\"children\":[\"dashboard\",[\"$\",\"$1\",\"c\",{\"children\":[null,[\"$\",\"$L2\",null,{\"parallelRouterKey\":\"children\",\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$L3\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":\"$undefined\",\"forbidden\":\"$undefined\",\"unauthorized\":\"$undefined\"}]]}],{\"children\":[\"__PAGE__\",[\"$\",\"$1\",\"c\",{\"children\":[[\"$\",\"$L4\",null,{\"Component\":\"$5\",\"searchParams\":{},\"params\":{},\"promises\":[\"$@6\",\"$@7\"]}],null,[\"$\",\"$L8\",null,{\"children\":[\"$L9\",\"$La\",[\"$\",\"$Lb\",null,{\"promise\":\"$@c\"}]]}]]}],{},null,false]},null,false]},null,false],[\"$\",\"$1\",\"h\",{\"children\":[null,[\"$\",\"$1\",\"P6G-U5AczoX9oXCNfhvCrv\",{\"children\":[[\"$\",\"$Ld\",null,{\"children\":\"$Le\"}],[\"$\",\"meta\",null,{\"name\":\"next-size-adjust\",\"content\":\"\"}]]}],[\"$\",\"$Lf\",null,{\"children\":\"$L10\"}]]}],false]],\"m\":\"$undefined\",\"G\":[\"$11\",\"$undefined\"],\"s\":false,\"S\":true}\n"])
   </script>
   <script>
-   self.__next_f.push([1,"e:\"$Sreact.suspense\"\nf:I[4911,[],\"AsyncMetadata\"]\nc:[\"$\",\"div\",null,{\"hidden\":true,\"children\":[\"$\",\"$e\",null,{\"fallback\":null,\"children\":[\"$\",\"$Lf\",null,{\"promise\":\"$@10\"}]}]}]\n6:null\n"])
+   self.__next_f.push([1,"12:\"$Sreact.suspense\"\n13:I[4911,[],\"AsyncMetadata\"]\n6:{}\n7:{}\n10:[\"$\",\"div\",null,{\"hidden\":true,\"children\":[\"$\",\"$12\",null,{\"fallback\":null,\"children\":[\"$\",\"$L13\",null,{\"promise\":\"$@14\"}]}]}]\n"])
   </script>
   <script>
-   self.__next_f.push([1,"a:[[\"$\",\"meta\",\"0\",{\"charSet\":\"utf-8\"}],[\"$\",\"meta\",\"1\",{\"name\":\"viewport\",\"content\":\"width=device-width, initial-scale=1\"}]]\n5:null\n"])
+   self.__next_f.push([1,"a:null\n"])
   </script>
   <script>
-   self.__next_f.push([1,"8:{\"metadata\":[[\"$\",\"title\",\"0\",{\"children\":\"Create Next App\"}],[\"$\",\"meta\",\"1\",{\"name\":\"description\",\"content\":\"Generated by create next app\"}],[\"$\",\"link\",\"2\",{\"rel\":\"icon\",\"href\":\"/favicon.ico\",\"type\":\"image/x-icon\",\"sizes\":\"16x16\"}]],\"error\":null,\"digest\":\"$undefined\"}\n10:{\"metadata\":\"$8:metadata\",\"error\":null,\"digest\":\"$undefined\"}\n"])
+   self.__next_f.push([1,"e:[[\"$\",\"meta\",\"0\",{\"charSet\":\"utf-8\"}],[\"$\",\"meta\",\"1\",{\"name\":\"viewport\",\"content\":\"width=device-width, initial-scale=1\"}]]\n9:null\n"])
+  </script>
+  <script>
+   self.__next_f.push([1,"c:{\"metadata\":[[\"$\",\"title\",\"0\",{\"children\":\"Create Next App\"}],[\"$\",\"meta\",\"1\",{\"name\":\"description\",\"content\":\"Generated by create next app\"}],[\"$\",\"link\",\"2\",{\"rel\":\"icon\",\"href\":\"/favicon.ico\",\"type\":\"image/x-icon\",\"sizes\":\"16x16\"}]],\"error\":null,\"digest\":\"$undefined\"}\n14:{\"metadata\":\"$c:metadata\",\"error\":null,\"digest\":\"$undefined\"}\n"])
   </script>
  </body>
 </html>

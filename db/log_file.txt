@@ -1,0 +1,89 @@
+05/07/25 - 21:13:37    [✓] Target received: https://ontraq.in/dashboard
+05/07/25 - 21:13:37    [*] Scraping the web
+05/07/25 - 21:13:38    [*] Process finished
+05/07/25 - 21:13:38    [*] Saving the file
+05/07/25 - 21:13:38    [*] Looking for the stack details
+05/07/25 - 21:13:38    [*] Process finished
+05/07/25 - 21:13:38    [*] Saving the file
+05/07/25 - 21:13:38    [+] Scaning 50 subdomains in https://ontraq.in/dashboard....
+05/07/25 - 21:13:38    [*] Found https://www.ontraq.in/dashboard
+05/07/25 - 21:13:38    [*] 3 valid urls found...
+05/07/25 - 21:13:38    [*] Found https://api.ontraq.in/dashboard
+05/07/25 - 21:13:38    [*] 4 valid urls found...
+05/07/25 - 22:21:00    [*] 
+1-2. 
+a. 
+This means that a text can change in many different ways;
+2. (The "R" is an element of)
+3-5. 
+3-5. The first "R" means "the first person to create something new";
+6. (1+2)
+7. 
+For example, it can be understood as a form of "not: "2-2-2.
+8. 
+8-
+9. 
+9. and the English version was introduced in this way in the first two chapters.
+10. (4+3-4)
+11. the first three lines or 4, 5, 1-2" or :
+1) "a ", 1
+1-3-4
+: a. A-2
+14%1-2, but it was an English translation of the same name and also a simple language in which no one will find it;
+9. 
+For example, if there is no such as a. If you are "A-1," it means that your (1) 1, 2" or if you were not able to make "1. "1-3, etc. This means that the first, i.e., of the world has taken from its history and history
+
+1. A-2-4, "a, a", a
+9" is said by an agent who says (n.
+10$1: or 2
+13( ) "A-3
+1," 1
+A
+8 or a ", not, "n,
+12.
+1, or" or "
+3,2, etc., or to
+For example, the first time-
+
+14- (7\
+
+1\"" ")s, 1
+
+9: and , 2, in,"}[$", "5\" or a", "
+: "
+""\n
+
+This,
+for. The next, 2
+
+For example, "3, in_" is for"} to- "
+1f ""
+
+A
+
+06/07/25 - 07:51:25    [+] ==> Based on the provided scan results, here's an analysis of the target's stack, potential vulnerabilities, and the next logical step:
+
+### Stack Information
+The target uses **Next.js**, a popular React-based framework for building server-rendered, statically generated, and performance-optimized web applications. This information is directly obtained from the "STACK INFORMATION" section of the scan results.
+
+### Potential Vulnerabilities
+From the HTML source code and the scan results, several potential issues can be identified:
+
+1. **Insecure Direct Object References (IDOR)**: The "Profile (IDOR)" section in the HTML source code suggests that the application may be vulnerable to IDOR. This is because it mentions "View user profiles using unprotected URLs," and provides direct links to profiles (e.g., `/dashboard/profile/p/1`, `/dashboard/profile/p/2`). An attacker could potentially enumerate and access other user profiles without authorization.
+
+2. **Potential for Cross-Site Scripting (XSS)**: Although not directly evident, the presence of user input fields (e.g., "Drop a comment...") indicates a potential risk for XSS if the input is not properly sanitized or if there's a vulnerability in the handling of user input.
+
+### Next Logical Step
+Given the information gathered:
+
+1. **Investigate IDOR Vulnerability**: Manually test the IDOR vulnerability by attempting to access different profile IDs to see if the application properly validates user permissions. This involves checking whether you can access profiles that you shouldn't have access to.
+
+2. **Check for XSS**: Test the input fields (like the comment section) for XSS vulnerabilities by injecting benign payloads to see if they are executed.
+
+3. **Enumerate Subdomains and Test for Other Vulnerabilities**: The scan results have already identified a couple of subdomains (`www.ontraq.in` and `api.ontraq.in`). Further testing could involve checking these subdomains for other potential vulnerabilities, such as misconfigurations, outdated software, or sensitive information disclosure.
+
+4. **Analyze JavaScript Files and Other Resources**: The numerous JavaScript files loaded by the application could potentially contain sensitive information or hints about the application's internal workings. Analyzing these files could reveal additional vulnerabilities or attack vectors.
+
+5. **Test File Upload Functionality**: The presence of a "File Upload" section suggests that testing this functionality for vulnerabilities like unrestricted file upload (which could lead to code execution) is warranted.
+
+By following these steps, you can gain a deeper understanding of the target's security posture and potentially identify and exploit vulnerabilities.

@@ -9,6 +9,7 @@ import Supporters from "./components/Supporters";
 import Threat from "./components/Threat";
 import VideoSection from "./components/VideoSection";
 import WhoThisIsFor from "./components/WhoThisIsFor";
+import WhyChooseEyeShield from "./components/WhyChooseEyeShield";
 
 export default function Home() {
   return (
@@ -20,6 +21,7 @@ export default function Home() {
       <Threat />
       <VideoSection />
       <WhoThisIsFor />
+      <WhyChooseEyeShield/>
       {/* <PainPoint /> */}
       {/* <Solution /> */}
       {/* <Features /> */}

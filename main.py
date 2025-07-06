@@ -1,14 +1,10 @@
-from tools.base.scraper import WebScraper
-from tools.base.stack_finder import StackFinder
-from tools.leaky_header_finder import monitor_network 
-from tools.base.subdomain import SubFinder
-from tools.nmap import run_basic_port_scan
-from emailer.send_report import Send_email
-
-
 import time
 from colorama import Fore, Style
+import threading
 
+
+from server.app import app
+from agent.decision_maker import analyse_the_site
 
 def typewriter(text, delay=0.0005):
     for char in text:
@@ -29,29 +25,29 @@ ascii_art = r"""
           | $$                                             /$$  \ $$                                    
           | $$                                            |  $$$$$$/                                    
           |__/                                             \______/          
-                                            Happy hacking                          
+-----------------------------------------Happy hacking-------------------------------------------                          
 """ 
+# https://ontraq.in/dashboard <=== This is the test website
+
 typewriter(Fore.CYAN + ascii_art + Style.RESET_ALL, delay=0.0005)
 
-# SubFinder("https://www.ontraq.in/")
-
-target = input("Enter the target website or IP (e.g., example.com): ")
-result = run_basic_port_scan(target)
-
-print("Scan Result:\n")
-print(result)
-Send_email(
-    receiver_email="example@gmail.com",
-    subject="Weekly Report",
-    report_file_path="reporting/report_maker.py",
-    app_email="geethaniya42@gmail.com",
-    app_password="twpeheehhampadva"
-)
 
 
+def run_server():
+    app.run(debug=False, use_reloader=False)
+
+server_thread = threading.Thread(target=run_server)
+server_thread.daemon = True 
+server_thread.start() 
 
 
-    
+print(Fore.YELLOW + "\n[+] Running LangChain analysis on base scan...\n" + Style.RESET_ALL)
+response = analyse_the_site()  
+print(Fore.GREEN + "\n[+] AI Analysis:\n" + Style.RESET_ALL)
+print(response)
 
-
-# https://ontraq.in/dashboard
+try:
+    while True:
+        time.sleep(1)
+except KeyboardInterrupt:
+    print("\n[+] Stopping server...")
