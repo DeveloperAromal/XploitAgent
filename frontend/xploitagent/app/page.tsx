@@ -5,7 +5,9 @@ import Navbar from "./components/includes/Navbar";
 import LatestNews from "./components/LatestNews";
 import PainPoint from "./components/PainPoint";
 import Solution from "./components/Solution";
+import Supporters from "./components/Supporters";
 import Threat from "./components/Threat";
+import VideoSection from "./components/VideoSection";
 import WhoThisIsFor from "./components/WhoThisIsFor";
 
 export default function Home() {
@@ -13,8 +15,10 @@ export default function Home() {
     <main className="">
       <Navbar />
       <Hero />
+      <Supporters />
       <LatestNews />
       <Threat />
+      <VideoSection />
       <WhoThisIsFor />
       {/* <PainPoint /> */}
       {/* <Solution /> */}
