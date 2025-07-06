@@ -29,6 +29,7 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
 cursor {
   cursor: url("../public/assets/cursor_p.png") auto;
 }
@@ -38,6 +39,7 @@ cursor {
   0% {
     transform: translateX(0%);
   }
+
   100% {
     transform: translateX(-50%);
   }
