@@ -87,3 +87,15 @@ Given the information gathered:
 5. **Test File Upload Functionality**: The presence of a "File Upload" section suggests that testing this functionality for vulnerabilities like unrestricted file upload (which could lead to code execution) is warranted.
 
 By following these steps, you can gain a deeper understanding of the target's security posture and potentially identify and exploit vulnerabilities.
+06/07/25 - 08:02:48    [✓] Target received: https://ontraq.in/dashboard
+06/07/25 - 08:02:48    [*] Scraping the web
+06/07/25 - 08:02:51    [*] Process finished
+06/07/25 - 08:02:51    [*] Saving the file
+06/07/25 - 08:02:51    [*] Looking for the stack details
+06/07/25 - 08:02:51    [*] Process finished
+06/07/25 - 08:02:51    [*] Saving the file
+06/07/25 - 08:02:51    [+] Scaning 50 subdomains in https://ontraq.in/dashboard....
+06/07/25 - 08:02:53    [*] Found https://www.ontraq.in/dashboard
+06/07/25 - 08:02:53    [*] 1 valid urls found...
+06/07/25 - 08:02:53    [*] Found https://api.ontraq.in/dashboard
+06/07/25 - 08:02:53    [*] 2 valid urls found...

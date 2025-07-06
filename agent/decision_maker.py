@@ -39,10 +39,7 @@ def analyse_the_site():
          base_url="https://openrouter.ai/api/v1",
          api_key=os.getenv("OPENROUTER_API_KEY"),
     )
-    
-    
-    
-    
+
     base_analysis_data = os.path.abspath("db")
     
     loader = DirectoryLoader(base_analysis_data, glob="*.txt", loader_cls=TextLoader)

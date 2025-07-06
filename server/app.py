@@ -1,6 +1,6 @@
 from flask import Flask, request, jsonify, Response
 from flask_cors import CORS
-from tools.runner import start_tools
+from executables.main_executale import exectute
 from utils.log import logReport
 import os
 
@@ -17,7 +17,7 @@ def targetCollector():
     target = data["target"]
     logReport(f"[✓] Target received: {target}")
     print(f"[✓] Target received: {target}")
-    start_tools(target)
+    exectute(target)
 
     return jsonify({"status": "started", "target": target}), 200
 
