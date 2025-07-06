@@ -30,8 +30,12 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-cursor {
+.cursor {
   cursor: url("../public/assets/cursor_p.png") auto;
+}
+
+.line-height {
+  line-height: 120px;
 }
 
 /* looping animation infinite*/

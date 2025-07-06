@@ -14,8 +14,8 @@ export default function VidSec() {
         <source src="/assets/phone-active.webm" type="video/webm" />
       </video>
 
-      <div className="relative -top-40 z-50">
-        <h2 className="text-[6rem] max-w-3xl font-semibold text-transparent bg-clip-text bg-gradient-to-tr from-white via-zinc-600 to-neutral-800">
+      <div className="relative -top-45 z-50 left-40">
+        <h2 className="text-[7rem] max-w-4xl  line-height text-transparent bg-clip-text bg-gradient-to-tr from-white via-zinc-600 to-neutral-800">
           Lightning fast. Edge ready
         </h2>
       </div>
