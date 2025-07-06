@@ -20,8 +20,8 @@ export default function Home() {
       <Supporters />
       {/* <LatestNews /> */}
       <Threat />
-      {/* <VidSec />
-      <VideoSection />
+      <VidSec />
+      {/*<VideoSection />
       <WhoThisIsFor /> */}
       {/* <WhyChooseEyeShield /> */}
       {/* <PainPoint /> */}
