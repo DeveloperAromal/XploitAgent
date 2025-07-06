@@ -3,8 +3,8 @@ import Link from "next/link";
 
 export default function Navbar() {
   return (
-    <header className="fixed w-full py-4 bg-transparent z-30">
-      <div className="absolute inset-0 bg-gradient-to-b from-black/90 via-black/60 to-transparent pointer-events-none z-0" />
+    <header className="fixed w-full py-6 bg-black z-30">
+      <div className="absolute inset-x-0 top-full h-12 bg-linear-to-b from-black to-transparent md:h-14 lg:h-18 z-10" />
       <div>
         <nav className="flex justify-between items-center px-10">
           <div className="flex items-center justify-center gap-[3rem]">

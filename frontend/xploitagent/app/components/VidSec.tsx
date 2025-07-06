@@ -2,7 +2,7 @@
 
 export default function VidSec() {
   return (
-    <section className="h-screen relative flex items-start px-10 mt-50">
+    <section className="h-screen cursor relative flex items-start px-10 mt-50">
       <video
         autoPlay
         loop

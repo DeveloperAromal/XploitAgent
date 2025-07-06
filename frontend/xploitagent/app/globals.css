@@ -31,7 +31,7 @@ body {
 }
 
 .cursor {
-  cursor: url("../public/assets/cursor_p.png") auto;
+  cursor: url("/assets/cursor_p.png") auto;
 }
 
 .line-height {
