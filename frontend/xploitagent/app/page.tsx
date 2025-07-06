@@ -18,16 +18,16 @@ export default function Home() {
       <Navbar />
       <Hero />
       <Supporters />
-      <LatestNews />
-      <Threat />
+      {/* <LatestNews /> */}
+      {/* {/* <Threat /> */}
       <VidSec />
       <VideoSection />
       <WhoThisIsFor />
-      <WhyChooseEyeShield />
+      {/* <WhyChooseEyeShield /> */}
       {/* <PainPoint /> */}
       {/* <Solution /> */}
       {/* <Features /> */}
-      <Footer />
+      {/* <Footer /> */}
     </main>
   );
 }

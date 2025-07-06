@@ -1,7 +1,7 @@
 export default function Threat() {
   return (
     <section className="flex items-center px-10 space-x-3">
-      <div className="box_one w-1/2 h-80 bg-[var(--primary)]/20 rounded-lg p-10 ">
+      {/* <div className="box_one w-1/2 h-80 bg-[var(--primary)]/20 rounded-lg p-10 ">
         <h2 className="text-9xl mb-3 font-semibold text-[var(--primary-text)]">
           80%
         </h2>
@@ -16,6 +16,10 @@ export default function Threat() {
         <p className="text-5xl text-[var(--primary-dull-text)] ">
           Beat the odds. <br /> Optimize your <br /> Security.
         </p>
+      </div> */}
+
+      <div>
+        <div className="border-2 border-amber-50 w-full h-auto">ss</div>
       </div>
     </section>
   );
