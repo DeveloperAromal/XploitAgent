@@ -37,10 +37,9 @@ def clean_and_label_docs(documents):
 def analyse_the_site():
     
     llm = ChatOpenAI(
-         model="meta-llama/llama-4-maverick:free",
+         model="anthropic/claude-3-opus",
          base_url="https://openrouter.ai/api/v1",
-  
-
+         api_key=os.getenv("OPENROUTER_API_KEY"),
     )
 
     base_analysis_data = os.path.abspath("db")
@@ -94,8 +93,9 @@ def plan_maker():
         return
     
     llm = ChatOpenAI(
-        model="meta-llama/llama-4-maverick:free",
+        model="anthropic/claude-3-opus",
         base_url="https://openrouter.ai/api/v1",
+        api_key=os.getenv("OPENROUTER_API_KEY"),
     )
     print("[+] LLM initialized successfully.")
 
@@ -117,9 +117,18 @@ def plan_maker():
 
     question = (
         """
-        You are a skilled penetration tester. Based on the vulnerability report, create a detailed step-by-step attack plan.
-        Tools available: [nmap, leaky header finder, network interceptor]. Mention which tool should be used first and why.
-        Consider entry points, severity, and recon tactics.
+            You are a professional penetration tester. Analyze the following data which includes:
+            - HTML source of the target website
+            - Tech stack (e.g. Next.js)
+            - Subdomains found
+            - Detected tool outputs
+
+            Your task:
+            1. Identify the stack and exposed technologies.
+            2. List potential vulnerabilities based on the data.
+            3. Propose a step-by-step attack plan using: [nmap, leaky header finder, network interceptor].
+            4. Justify which tool to use first and why.
+            Be as technical and detailed as possible.
         """
     )
 
