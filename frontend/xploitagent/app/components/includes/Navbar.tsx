@@ -3,13 +3,13 @@ import Link from "next/link";
 
 export default function Navbar() {
   return (
-    <header className="fixed w-full py-6 bg-black z-20">
+    <header className="fixed w-full py-6 bg-black z-50">
       <div className="absolute inset-x-0 top-full h-12 bg-linear-to-b from-black to-transparent md:h-14 lg:h-18 z-10" />
       <div>
         <nav className="px-10 flex justify-between">
           <div className="flex items-center gap-10">
             <div className="flex items-center justify-center">
-              <Link href="#"className="relative mt-1">
+              <Link href="#" className="relative mt-1">
                 <h1>
                   <Image
                     src="/assets/logo.png"
