@@ -37,7 +37,7 @@ def clean_and_label_docs(documents):
 def analyse_the_site():
     
     llm = ChatOpenAI(
-         model="anthropic/claude-3-opus",
+         model="nvidia/llama-3.3-nemotron-super-49b-v1:free",
          base_url="https://openrouter.ai/api/v1",
          api_key=os.getenv("OPENROUTER_API_KEY"),
     )
@@ -93,7 +93,7 @@ def plan_maker():
         return
     
     llm = ChatOpenAI(
-        model="anthropic/claude-3-opus",
+        model="nvidia/llama-3.3-nemotron-super-49b-v1:free",
         base_url="https://openrouter.ai/api/v1",
         api_key=os.getenv("OPENROUTER_API_KEY"),
     )
