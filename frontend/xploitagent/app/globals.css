@@ -38,6 +38,12 @@ body {
   line-height: 120px;
 }
 
+.ai-bg-1 {
+  background-image: url(../public/assets/ai-bg-2.png);
+  background-size: cover;
+  background-position: center;
+}
+
 /* looping animation infinite*/
 @keyframes scroll {
   0% {

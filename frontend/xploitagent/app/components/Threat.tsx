@@ -1,6 +1,6 @@
 export default function Threat() {
   return (
-    <section className="w-full px-0 text-white">
+    <section className="w-full px-0 pt-20 text-white">
       <div className="w-full">
         <div className="flex items-center justify-center pb-10 flex-wrap w-full">
           <div className="flex flex-wrap gap-10 w-full px-10">

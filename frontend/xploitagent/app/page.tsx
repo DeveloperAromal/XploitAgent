@@ -21,8 +21,8 @@ export default function Home() {
       {/* <LatestNews /> */}
       <Threat />
       <VidSec />
-      {/*<VideoSection />
-      <WhoThisIsFor /> */}
+      {/*<VideoSection /> */}
+      <WhoThisIsFor /> 
       {/* <WhyChooseEyeShield /> */}
       {/* <PainPoint /> */}
       {/* <Solution /> */}
