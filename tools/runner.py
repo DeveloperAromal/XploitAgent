@@ -19,7 +19,7 @@ from tools.base.subdomain import SubFinder
 def start_tools(target):
     
     tools_func = [
-        ("WebScraper", lambda: WebScraper(target)),
+        # ("WebScraper", lambda: WebScraper(target)),
         ("StackFinder", lambda: StackFinder()),
         ("SubFinder", lambda: SubFinder(target)),
     ]
