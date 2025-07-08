@@ -14,7 +14,7 @@ def WebScraper(target):
     soup = BeautifulSoup(target_req_html, "html.parser")
     pretty_soup = soup.prettify()
     
-    with open(save_path, "w") as f:
+    with open(save_path, "a") as f:
         logReport("[*] Process finished")   
         logReport("[*] Saving the file")     
         print(f"{Fore.GREEN}[*] Process finished{Style.RESET_ALL}")

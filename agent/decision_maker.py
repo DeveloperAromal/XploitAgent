@@ -1,4 +1,5 @@
-from langchain_community.chat_models import ChatOpenAI
+# from langchain_community.chat_models import ChatOpenAI
+from langchain_openai import ChatOpenAI
 from langchain_community.document_loaders import DirectoryLoader, TextLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.chains.question_answering import load_qa_chain
@@ -31,16 +32,12 @@ def clean_and_label_docs(documents):
     return "\n\n".join(cleaned_docs)
 
 
-
-
 def analyse_the_site():
     
     llm = ChatOpenAI(
-         model="meta-llama/llama-4-maverick:free",
+         model="nvidia/llama-3.3-nemotron-super-49b-v1:free",
          base_url="https://openrouter.ai/api/v1",
-        #  api_key=os.getenv("OPENROUTER_API_KEY"),
-         api_key="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",
-
+         api_key=os.getenv("OPENROUTER_API_KEY"),
     )
 
     base_analysis_data = os.path.abspath("db")
@@ -53,73 +50,96 @@ def analyse_the_site():
     document = filtered_docs
     
     
-    
     combined = clean_and_label_docs(document)
     
     splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=200).split_documents([Document(page_content=combined)])
     
     chain = load_qa_chain(llm, chain_type="stuff")
     
-    
-    
-    target_html = os.path.join("db", "target_html.txt")
-    with open (target_html, "r") as f:
-        html_data = f.read()
-        
-    valid_subdomains = os.path.join("db", "valid_subdomains.txt")
-    with open (valid_subdomains, "r") as f:
-        subdomain_data = f.read()
-    
-    stack = os.path.join("db", "target_stack_data.txt")
-    with open (stack, "r") as f:
-        stackinfo = f.read()
-    
     question = (
-                f"""
-                    You are a skilled offensive security expert with extensive experience in analyzing web applications for vulnerabilities. Your focus is on identifying potential security risks and providing actionable insights for improvement.
-
-                    Your task is to analyze the provided HTML source code and subdomain data from a scanned target. Here are the details you need to cover:  
-                    - HTML Source Code: {html_data}  
-                    - Subdomain Data: {subdomain_data}  
-                    - Stack info: {stackinfo}
-                    ---
-
-                    In your analysis, identify:  
-                    1. The frontend or backend stack being used (e.g., frameworks like Next.js, APIs, etc.).  
-                    2. Specific security vulnerabilities or misconfigurations observed (e.g., IDOR, XSS, etc.) with evidence from the code.  
-                    3. Prioritized next steps or potential exploits a pentester should consider based on the findings.  
-
-                    ---
-
-                    Output your findings as a structured vulnerability report with the following sections:  
-                    - Stack Identification  
-                    - Vulnerability Analysis  
-                    - Exploitation Opportunities  
-                    - Recommended Next Steps  
-
-                    ---
-
-                    Ensure that your analysis is thorough, focusing on both common and less obvious vulnerabilities. Provide clear evidence from the code where applicable, and detail each vulnerability's potential impact.  
-
-                    ---
-
-                    Constraints: Avoid overly technical jargon that may confuse non-experts, and ensure clarity in your explanations. Focus on practical recommendations rather than theoretical discussions.  
-                """
+        "Based on the scan results, what stack does the target use, "
+        "what vulnerabilities may exist, and what would be the next logical step?"
     )
+
+    result = chain.invoke({"input_documents":splitter, "question":question})
+    data = result["output_text"]
     
-
-    result = chain.run(input_documents=splitter, question=question)
-
-    logReport(f"[+] ==> {result}")
+    logReport(f"[+] ==> {data}")
     logReport(f"[+] ==> ---Security vulnerability found---")
     
     save_file = os.path.join("db", "security_vulnerability.md")
        
     with open(save_file, "w") as f:
-         f.write(result)
-         
+         f.write(result["output_text"])
+    
+    print(result)
          
     print(f"{Fore.GREEN} [+] Process finished {Style.RESET_ALL}")
     print(f"{Fore.YELLOW} [+] Saving file{Style.RESET_ALL}")
          
     return result
+
+
+def plan_maker():
+    print("[*] Initializing plan maker...")
+
+    vulnerable_report = os.path.join("db", "security_vulnerability.md")
+    print(f"[+] Loading vulnerability report from: {vulnerable_report}")
+
+    if not os.path.exists(vulnerable_report):
+        print("[-] Report file not found!")
+        return
+    
+    llm = ChatOpenAI(
+        model="nvidia/llama-3.3-nemotron-super-49b-v1:free",
+        base_url="https://openrouter.ai/api/v1",
+        api_key=os.getenv("OPENROUTER_API_KEY"),
+    )
+    print("[+] LLM initialized successfully.")
+
+    with open(vulnerable_report, "r", encoding="utf-8") as f:
+        report = f.read()
+    print("[+] Vulnerability report loaded into memory.")
+
+    print("[*] Splitting the report into smaller chunks...")
+    splitter = RecursiveCharacterTextSplitter(chunk_size=500, chunk_overlap=100)
+    chunks = splitter.split_text(report)
+    print(f"[+] Report split into {len(chunks)} chunks.")
+
+    documents = [Document(page_content=chunk) for chunk in chunks]
+    print("[+] Converted chunks into LangChain Document objects.")
+
+    print("[*] Loading QA chain with chain_type='stuff'...")
+    chain = load_qa_chain(llm, chain_type="stuff")
+    print("[+] QA chain loaded successfully.")
+
+    question = (
+        """
+            You are a professional penetration tester. Analyze the following data which includes:
+            - HTML source of the target website
+            - Tech stack (e.g. Next.js)
+            - Subdomains found
+            - Detected tool outputs
+
+            Your task:
+            1. Identify the stack and exposed technologies.
+            2. List potential vulnerabilities based on the data.
+            3. Propose a step-by-step attack plan using: [nmap, leaky header finder, network interceptor].
+            4. Justify which tool to use first and why.
+            Be as technical and detailed as possible.
+        """
+    )
+
+    print("[*] Invoking LLM to generate plan...")
+    plan = chain.invoke({"input_documents": documents, "question": question})
+    print("[+] Plan generation complete.\n")
+
+    save_file = os.path.join("db", "plan.md")
+       
+    with open(save_file, "w") as f:
+         f.write(plan["output_text"])
+    
+
+    print("========== GENERATED ATTACK PLAN ==========")
+    print(plan["output_text"])
+    print("===========================================")

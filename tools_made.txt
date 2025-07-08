@@ -2,3 +2,45 @@ scraper
 stackfinder
 leaky_header_finder
 subdomain finder
+
+
+
+
+
+
+
+
+
+ question = (
+                f"""
+                    You are a skilled offensive security expert with extensive experience in analyzing web applications for vulnerabilities. Your focus is on identifying potential security risks and providing actionable insights for improvement.
+
+                    Your task is to analyze the provided HTML source code and subdomain data from a scanned target. Here are the details you need to cover:  
+                    - HTML Source Code: {html_data}  
+                    - Subdomain Data: {subdomain_data}  
+                    - Stack info: {stackinfo}
+                    ---
+
+                    In your analysis, identify:  
+                    1. The frontend or backend stack being used (e.g., frameworks like Next.js, APIs, etc.).  
+                    2. Specific security vulnerabilities or misconfigurations observed (e.g., IDOR, XSS, etc.) with evidence from the code.  
+                    3. Prioritized next steps or potential exploits a pentester should consider based on the findings.  
+
+                    ---
+
+                    Output your findings as a structured vulnerability report with the following sections:  
+                    - Stack Identification  
+                    - Vulnerability Analysis  
+                    - Exploitation Opportunities  
+                    - Recommended Next Steps  
+
+                    ---
+
+                    Ensure that your analysis is thorough, focusing on both common and less obvious vulnerabilities. Provide clear evidence from the code where applicable, and detail each vulnerability's potential impact.  
+
+                    ---
+
+                    Constraints: Avoid overly technical jargon that may confuse non-experts, and ensure clarity in your explanations. Focus on practical recommendations rather than theoretical discussions.  
+                """
+    )
+    
