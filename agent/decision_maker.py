@@ -32,8 +32,6 @@ def clean_and_label_docs(documents):
     return "\n\n".join(cleaned_docs)
 
 
-
-
 def analyse_the_site():
     
     llm = ChatOpenAI(

@@ -5,5 +5,5 @@ from agent.decision_maker import plan_maker
 
 def exectute(target):
     start_tools(target)
-    analyse_the_site()
-    plan_maker()
+    # analyse_the_site()
+    # plan_maker()

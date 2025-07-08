@@ -1,7 +1,7 @@
 from tools.base.scraper import WebScraper
 from tools.base.stack_finder import StackFinder
 from tools.base.subdomain import SubFinder
-
+from tools.critical.crawler import crawler
 
 # def start_tools(target):
 #     tools = [WebScraper(target), StackFinder(), SubFinder(target)]
@@ -20,8 +20,10 @@ def start_tools(target):
     
     tools_func = [
         # ("WebScraper", lambda: WebScraper(target)),
-        ("StackFinder", lambda: StackFinder()),
-        ("SubFinder", lambda: SubFinder(target)),
+        # ("StackFinder", lambda: StackFinder()),
+        # ("SubFinder", lambda: SubFinder(target)),
+        ("Crawler", lambda: crawler(target)),
+
     ]
 
     for name, func in tools_func:
