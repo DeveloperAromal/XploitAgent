@@ -29,69 +29,69 @@
   <script nomodule="" src="/_next/static/chunks/polyfills-42372ed130431b0a.js">
   </script>
  </head>
- <body class="__variable_5cfdac __variable_9a8899 antialiased">
+ <body>
   <div hidden="">
-   <!--$-->
-   <!--/$-->
+   
+   
   </div>
-  <main class="min-h-screen bg-black text-white p-10 space-y-10">
-   <h1 class="text-5xl font-bold text-transparent bg-gradient-to-tl from-zinc-200 via-zinc-400 to-zinc-600 bg-clip-text">
+  <main>
+   <h1>
     XploitAgent Dashboard
    </h1>
-   <p class="text-zinc-400">
+   <p>
     Welcome,
-    <!-- -->
-    <span class="font-mono">
+    
+    <span>
      Anonymous (no check)
     </span>
    </p>
    <section>
-    <h2 class="text-2xl font-semibold mb-2">
+    <h2>
      Comment Wall
     </h2>
-    <div class="flex gap-2 mb-4">
-     <input class="w-full px-4 py-2 bg-zinc-800 border border-zinc-600 rounded placeholder:text-zinc-500" placeholder="Drop a comment..." value=""/>
-     <button class="bg-green-600 px-4 py-2 rounded">
+    <div>
+     <input placeholder="Drop a comment..." value=""/>
+     <button>
       Post
      </button>
     </div>
-    <div class="space-y-2">
+    <div>
     </div>
    </section>
    <section>
-    <h2 class="text-2xl font-semibold mb-2">
+    <h2>
      File Upload
     </h2>
-    <div class="flex gap-2">
-     <input class="text-sm" type="file"/>
-     <button class="bg-purple-600 px-4 py-2 rounded">
+    <div>
+     <input type="file"/>
+     <button>
       Upload
      </button>
     </div>
    </section>
    <section>
-    <h2 class="text-2xl font-semibold mb-2">
+    <h2>
      Profile (IDOR)
     </h2>
-    <p class="text-sm text-zinc-400">
+    <p>
      View user profiles using unprotected URLs:
     </p>
-    <ul class="mt-2 list-disc list-inside">
+    <ul>
      <li>
-      <a class="text-blue-500" href="/dashboard/profile/p/1">
+      <a href="/dashboard/profile/p/1">
        View Profile ID 1
       </a>
      </li>
      <li>
-      <a class="text-blue-500" href="/dashboard/profile/p/2">
+      <a href="/dashboard/profile/p/2">
        View Profile ID 2
       </a>
      </li>
     </ul>
    </section>
   </main>
-  <!--$-->
-  <!--/$-->
+  
+  
   <script async="" src="/_next/static/chunks/webpack-65c92ea592d7dc99.js">
   </script>
   <script>
