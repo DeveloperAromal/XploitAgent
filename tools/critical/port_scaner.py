@@ -1,31 +1,27 @@
-from scapy.all import IP, TCP, sr1
-import socket
+import nmap
 
-def syn_scan(target, port_range=(20, 100)):
-    try:
-        ip = socket.gethostbyname(target)
-        print(f"\n[+] Scanning target: {target} ({ip})\n")
-    except socket.gaierror:
-        print("[!] Invalid domain or IP")
-        return
+def run_nmap_scan(target, port_range='1-1000'):
+    scanner = nmap.PortScanner()
 
-    scanned_ports = set()
+    print(f"\n[+] Scanning {target} on ports {port_range}...\n")
 
-    for port in range(port_range[0], port_range[1] + 1):
-        if port in scanned_ports:
-            continue  # Avoid duplicate scan
-        scanned_ports.add(port)
+    # -sV = version detection
+    scanner.scan(hosts=target, ports=port_range, arguments='-sV')
 
-        pkt = IP(dst=ip)/TCP(dport=port, flags="S")
-        resp = sr1(pkt, timeout=1, verbose=0)
+    for host in scanner.all_hosts():
+        print(f"Host: {host} ({scanner[host].hostname()})")
+        print(f"State: {scanner[host].state()}\n")
 
-        if resp is None:
-            continue
-        elif resp.haslayer(TCP) and resp[TCP].flags == 0x12:
-            print(f"[OPEN] Port {port}")
-            # Send RST to reset connection
-            sr1(IP(dst=ip)/TCP(dport=port, flags="R"), timeout=1, verbose=0)
+        for proto in scanner[host].all_protocols():
+            print(f"Protocol: {proto}")
+            ports = scanner[host][proto].keys()
+            for port in sorted(ports):
+                service = scanner[host][proto][port]
+                print(f"  Port {port}: {service['state']} - {service.get('name', '')} ({service.get('product', '')} {service.get('version', '')})")
+            print()
 
 if __name__ == "__main__":
-    domain = input("Enter domain or IP to scan: ")
-    syn_scan(domain, port_range=(20, 100))
+    domain = input("Enter target IP or domain: ")
+    run_nmap_scan(domain, port_range="20-1000")
+
+# vidyatcklmr.ac.in
