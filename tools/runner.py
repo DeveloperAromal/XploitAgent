@@ -1,9 +1,10 @@
 from tools.base.scraper import WebScraper
 from tools.base.stack_finder import StackFinder
 from tools.base.subdomain import SubFinder
-from tools.critical.crawler import crawler
+from tools.base.crawler import crawler
 from tools.critical.sql_injector import sql_injection
 from tools.critical.xss import scan_xss
+from tools.critical.port_scaner import port_scanner
 
 # def start_tools(target):
 #     tools = [WebScraper(target), StackFinder(), SubFinder(target)]
@@ -27,11 +28,13 @@ def start_tools(target):
         # ("Crawler", lambda: crawler(target)),
         # ("SQL injector", lambda: sql_injection(target))
         
-        ("XSS", lambda: scan_xss(target))
+        # ("XSS", lambda: scan_xss(target))
+        ("port_scaner", lambda: port_scanner(target))
     ]
 
     for name, func in tools_func:
         try:
             func()
+            print("================================================")
         except Exception as e:
             print(f"[Error] ==> {name} : {e}")
