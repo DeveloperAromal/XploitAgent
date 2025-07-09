@@ -85,7 +85,7 @@ def sql_injection(url):
 
                 if vulnerable(res):
                     print(f"[!!!] SQL Injection vulnerability detected on {target_url}")
-                    break  # Stop testing more payloads if one is successful
+                    break
                 else:
                     print(f"[✓] No SQL Injection with payload: {payload}")
             except Exception as e:
