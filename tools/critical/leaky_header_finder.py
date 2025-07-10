@@ -10,7 +10,6 @@ def detect_leaky_headers(headers):
     return findings
 
 def monitor_network(target_url: str):
-    save_file = os.path.join("db", "leaked_keys.txt")
     endpoints = set()
     leaked_headers = []
 
@@ -31,13 +30,19 @@ def monitor_network(target_url: str):
         page.goto(target_url, wait_until="networkidle")
 
         browser.close()
-        
-    with open(save_file, "w") as f:
-        if leaked_headers:
-            f.write("[+] Found headers \n")
-            for k, v in leaked_headers:
-                f.write(f"{k} -> {v} \n")
-        if endpoints:
-            f.write("[+] Possible Endpoints \n")
-            for endpoint in endpoints:
-                f.write(f"{endpoint}\n")
+    
+    return {
+        "leaked_headers": leaked_headers,
+        "possible_endpoints": list(endpoints)
+    }
+
+def detect_leaky_headers_batch(urls_dict):
+    """
+    Accepts: {"urls": [list_of_urls]}
+    Returns: dict mapping url -> findings dict
+    """
+    results = {}
+    for url in urls_dict.get("urls", []):
+        print(f"Scanning {url} for leaky headers...")
+        results[url] = monitor_network(url)
+    return results

@@ -6,10 +6,10 @@ from bs4 import BeautifulSoup
 from colorama import Fore, Style
 
 
-
 def crawl_web(target, endpoints):
     target = target.strip().rstrip('/')
-    
+    save_path = os.path.join("db", "endpoints.txt")
+
     for endpoint in endpoints:
         endpoint = endpoint.strip().lstrip('/')
         url = f"{target}/{endpoint}"
@@ -19,23 +19,22 @@ def crawl_web(target, endpoints):
             if response.status_code == 200:
                 print(f"[✓] Valid endpoint: {url}")
                 print(f"{Fore.GREEN}[*] Scraping the web{Style.RESET_ALL}")
-                save_path = os.path.join("db", "target_html.txt")
-    
-                target_req_html = requests.get(url).text
-                soup = BeautifulSoup(target_req_html, "html.parser")
+                
+                soup = BeautifulSoup(response.text, "html.parser")
 
-                with open(save_path, "a") as f:
-                    logReport("[*] Process finished")   
-                    logReport("[*] Saving the file")     
-                    print(f"{Fore.GREEN}[*] Process finished{Style.RESET_ALL}")
-                    print(f"{Fore.YELLOW}[*] Saving the file\n\n{Style.RESET_ALL}")
-                    f.write(soup)
+                with open(save_path, "a", encoding="utf-8") as f:
+                    f.write(f"\n\n===== {url} =====\n")
+                    f.write(soup.prettify() + "\n")
+
+                logReport("[*] Process finished")   
+                logReport("[*] Saved to endpoints.txt")     
+                print(f"{Fore.GREEN}[*] Process finished{Style.RESET_ALL}")
+                print(f"{Fore.YELLOW}[*] Saved to endpoints.txt\n{Style.RESET_ALL}")
             else:
                 print(f"[-] Invalid endpoint: {url} (Status: {response.status_code})")
 
         except Exception as e:
             print(f"[!] Error occurred while checking {url}: {e}")
-
 
 def crawler(target):
     data_file = os.path.join("data", "api_list.txt")
@@ -49,4 +48,3 @@ def crawler(target):
 
     crawl_web(target, endpoints)
    
-    

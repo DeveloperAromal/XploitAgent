@@ -9,9 +9,8 @@ s.headers["User-Agent"] = (
     "(KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36"
 )
 
-with open((os.path.join("data", "sql_payload.txt")), "r")as f:
+with open(os.path.join("data", "sql_payload.txt"), "r") as f:
     payloads = f.read().splitlines()
-
 
 def get_forms(url):
     res = s.get(url)
@@ -49,7 +48,7 @@ def vulnerable(response):
         "warning: mysql",
         "mysql_fetch",
         "syntax error",
-        "ORA-01756",
+        "ora-01756",
         "unterminated quoted string",
     }
     content = response.content.decode(errors="ignore").lower()
@@ -59,13 +58,18 @@ def vulnerable(response):
     return False
 
 def sql_injection(url):
+    """
+    Runs SQL Injection test on a single URL.
+    Returns True if vulnerable, False otherwise.
+    """
     forms = get_forms(url)
-    print(f"[!] Detected {len(forms)} forms on {url}")
+    if not forms:
+        return {"vulnerable": False, "message": "No forms found"}
 
     for form in forms:
         details = get_form_value(form)
         target_url = urljoin(url, details["action"])
-        
+
         for payload in payloads:
             data = {}
             for input_tag in details["inputs"]:
@@ -74,9 +78,6 @@ def sql_injection(url):
                 elif input_tag["type"] != "submit":
                     data[input_tag["name"]] = payload
 
-            print(f"\n[+] Submitting payload to: {target_url}")
-            print(f"[+] Payload data: {data}")
-
             try:
                 if details["method"] == "post":
                     res = s.post(target_url, data=data, timeout=10)
@@ -84,9 +85,19 @@ def sql_injection(url):
                     res = s.get(target_url, params=data, timeout=10)
 
                 if vulnerable(res):
-                    print(f"[!!!] SQL Injection vulnerability detected on {target_url}")
-                    break
-                else:
-                    print(f"[✓] No SQL Injection with payload: {payload}")
+                    return {"vulnerable": True, "payload": payload, "target": target_url}
             except Exception as e:
-                print(f"[x] Request failed: {e}")
+                return {"vulnerable": False, "error": str(e)}
+
+    return {"vulnerable": False, "message": "No SQL Injection found"}
+
+def sql_injection_batch(urls_dict):
+    """
+    Accepts: {"urls": [list_of_urls]}
+    Returns: dict mapping url -> sql injection result dict
+    """
+    results = {}
+    for url in urls_dict.get("urls", []):
+        print(f"Scanning URL: {url}")
+        results[url] = sql_injection(url)
+    return results

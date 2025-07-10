@@ -1,38 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Live Logs</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>Vulnerability Scan Report from XploitAgent</title>
     <style>
       body {
-        background: #111;
-        color: #30e70b;
-        font-family: monospace;
-        padding: 1rem;
+        font-family: 'Inter', sans-serif;
       }
-      pre {
-        white-space: pre-wrap;
+
+      .bg-pattern {
+        background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23262626' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zm0-30V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        background-repeat: repeat;
       }
     </style>
   </head>
-  <body>
-    <h1>Live Logs</h1>
-    <pre id="log"></pre>
+  <body class="bg-neutral-950 p-6 md:p-10 bg-pattern">
+    <div class="max-w-3xl mx-auto bg-neutral-900 rounded-3xl shadow-2xl overflow-hidden backdrop-blur-sm bg-opacity-90">
+      <div class="p-8 md:p-12 text-neutral-200">
 
-    <script>
-      async function fetchLogs() {
-        try {
-          const res = await fetch("http://127.0.0.1:5000/api/logs");
-          const text = await res.text();
-          console.log("Fetched logs:", text);
-          document.getElementById("log").textContent = text;
-        } catch (e) {
-          console.error("Fetch error:", e); 
-          document.getElementById("log").textContent = "Waiting for logs.";
-        }
-      }
+        <div class="text-center mb-8">
+            <img src="https://vgvmufmldgmthuoxqrum.supabase.co/storage/v1/object/public/xploitagent-bucket//file_00000000413061f78631d52252e1aeab-removebg-preview.png" alt="XploitAgent Logo" class="mx-auto mb-4 w-48 object-contain rounded-md">
+            <h1 class="text-3xl md:text-4xl font-bold text-white mb-2">Vulnerability Scan Report</h1>
+            <p class="text-neutral-400 text-lg">Scan Completed Successfully</p>
+        </div>
 
-      fetchLogs(); 
-      setInterval(fetchLogs, 1000); 
-    </script>
+        <div class="mb-8">
+            <p class="text-lg mb-4">Dear [Recipient Name],</p>
+            <p class="text-md leading-relaxed">
+                We are pleased to inform you that the vulnerability scan for <strong>[Target Name/URL]</strong> has been successfully completed. Below is a brief overview of the findings from the latest scan.
+            </p>
+        </div>
+
+        <div class="bg-neutral-800 p-6 rounded-2xl mb-8 shadow-lg">
+            <h3 class="text-2xl font-semibold text-white mb-4">Scan Summary</h3>
+{get}
+        </div>
+
+        <div class="text-center mb-8">
+            <p class="text-md leading-relaxed mb-6">
+                For a detailed analysis, including specific vulnerabilities, remediation steps, and further insights, please access the full report:
+            </p>
+            <a href="[Link to Full Report]" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transition duration-300 ease-in-out transform hover:scale-105">
+                View Full Scan Report
+            </a>
+        </div>
+
+        <div class="text-center text-neutral-500 text-sm mt-auto pt-8 border-t border-neutral-700">
+            <p>&copy; 2025 XploitAgent. All rights reserved.</p>
+            <p>If you have any questions, please contact our support team.</p>
+        </div>
+      </div>
+    </div>
   </body>
 </html>

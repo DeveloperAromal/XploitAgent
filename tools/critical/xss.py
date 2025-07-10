@@ -9,7 +9,6 @@ s.headers["User-Agent"] = (
     "(KHTML, like Gecko) Chrome/84.0.4147.105 Safari/537.36"
 )
 
-
 def load_payloads():
     payload_file  = os.path.join("data", "xss_payloads.txt")
     with open(payload_file, "r", encoding="utf-8") as f:
@@ -55,23 +54,37 @@ def submit_form(form_details, url, payload):
     return payload in res.text
 
 def scan_xss(url):
-    print(f"[✓] Target received: {url}")
+    result = {
+        "vulnerable": False,
+        "details": [],
+        "forms_found": 0
+    }
+
     payloads = load_payloads()
     forms = get_forms(url)
-    print(f"[+] Detected {len(forms)} form(s) on {url}")
+    result["forms_found"] = len(forms)
 
     for form in forms:
         form_details = get_form_details(form)
-        vulnerable = False
 
         for payload in payloads:
-            print(f"[*] Testing payload: {payload}")
             if submit_form(form_details, url, payload):
-                print("[!!!] XSS Vulnerability Detected!")
-                print("[Form Details]", form_details)
-                print("[Payload]", payload)
-                vulnerable = True
+                result["vulnerable"] = True
+                result["details"].append({
+                    "form": form_details,
+                    "payload": payload
+                })
                 break 
 
-        if not vulnerable:
-            print("[-] No XSS vulnerability detected for this form.")
+    return result
+
+def scan_xss_batch(urls_dict):
+    """
+    Accepts: {"urls": [list_of_urls]}
+    Returns: dict mapping url -> xss scan result
+    """
+    results = {}
+    for url in urls_dict.get("urls", []):
+        print(f"[✓] Scanning XSS for: {url}")
+        results[url] = scan_xss(url)
+    return results

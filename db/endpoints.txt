@@ -1,0 +1,5 @@
+[✓] Valid endpoint: http://testfire.net/api/logout
+
+===== http://testfire.net/api/logout =====
+{"LoggedOut" : "True"}
+
